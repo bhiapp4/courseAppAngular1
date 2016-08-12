@@ -1,0 +1,16 @@
+{
+  "name": "courseapp",
+  "version": "1.0.0",
+  "description": "Course app ui",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Appi",
+  "license": "ISC",
+  "dependencies": {
+    "browser-sync": "^2.14.0",
+    "gulp": "^3.9.1",
+    "gulp-live-server": "0.0.30"
+  }
+}

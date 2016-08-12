@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="bower_components/bootswatch-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/angular-bootstrap/ui-bootstrap-csp.css">
+
+    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src='bower_components/ngMask/dist/ngMask.min.js'></script>
+    <script src="app.js"></script>
+    <script src="routes.js"></script>
+    <script src="user/controller.js"></script>
+    <script src="user/service.js"></script>
+    <script src="directives/showMessage.js"></script>
+
+
+</head>
+
+<body ng-app="CourseApp">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" ui-sref="login">Course Application</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div ui-view></div>
+    </div>
+</body>
+
+
+</html>
