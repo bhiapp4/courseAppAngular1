@@ -1,4 +1,4 @@
-app.service('CourseService', function ($resource) {
+app.service('CourseService', ['$resource', function ($resource) {
     var courseApi = $resource('http://localhost:8080/course', {}, {
         getAll: {
             method: 'GET',
@@ -26,4 +26,4 @@ app.service('CourseService', function ($resource) {
         });
     };
 
-});
+}]);

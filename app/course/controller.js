@@ -1,4 +1,4 @@
-app.controller('CourseController', function (CourseService, $scope, $cookies) {
+app.controller('CourseController', ['CourseService', '$scope', '$cookies', function (CourseService, $scope, $cookies) {
     $scope.courses = null;
     $scope.registeredCourses = null;
     var createNewTopic = function () {
@@ -44,4 +44,4 @@ app.controller('CourseController', function (CourseService, $scope, $cookies) {
     }
 
 
-});
+}]);

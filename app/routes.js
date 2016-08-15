@@ -1,4 +1,4 @@
-app.config(function ($stateProvider, $urlRouterProvider) {
+app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
     // For any unmatched url, redirect to /state1
     $urlRouterProvider.otherwise("/login");
     // Now set up the states
@@ -23,9 +23,9 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: 'course/course-add.html',
             controller: 'CourseController'
         })
-});
+}]);
 
-app.run(function ($rootScope, $cookies, $location) {
+app.run(['$rootScope', '$cookies', '$location', function ($rootScope, $cookies, $location) {
     $rootScope.logOut = function () {
         $cookies.remove('loggedInUser');
         $location.path('/login');
@@ -46,4 +46,4 @@ app.run(function ($rootScope, $cookies, $location) {
 
     });
 
-});
+}]);

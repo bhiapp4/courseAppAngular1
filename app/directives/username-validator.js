@@ -1,4 +1,4 @@
-app.directive('usernameValidator', function ($http, $q) {
+app.directive('usernameValidator', ['$http', '$q', function ($http, $q) {
     return {
         require: 'ngModel',
         link: function (scope, element, attrs, ngModel) {
@@ -16,4 +16,4 @@ app.directive('usernameValidator', function ($http, $q) {
             }
         }
     };
-});
+}]);

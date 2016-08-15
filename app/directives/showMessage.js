@@ -1,4 +1,4 @@
-app.directive('showMessage', function () {
+app.directive('showMessage', [function () {
     return {
         restrict: 'E',
         templateUrl: 'directives/showMessage.html',
@@ -7,4 +7,4 @@ app.directive('showMessage', function () {
             fieldLabel: '@'
         }
     }
-});
+}]);

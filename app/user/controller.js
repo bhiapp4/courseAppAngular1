@@ -1,4 +1,4 @@
-app.controller('UserController', function (UserService, $scope, $cookies, $state) {
+app.controller('UserController', ['UserService', '$scope', '$cookies', '$state', function (UserService, $scope, $cookies, $state) {
     $scope.value = 'Hello User';
     $scope.regex = "((?=.*\\d)(?=.*[a-z])(?=.*[@#$%]).{6,10})";
     $scope.user = {
@@ -48,4 +48,4 @@ app.controller('UserController', function (UserService, $scope, $cookies, $state
         $scope.signupForm.$setPristine();
         $scope.signupForm.$setUntouched();
     };
-});
+}]);

@@ -1,4 +1,4 @@
-app.service('UserService', function ($resource) {
+app.service('UserService', ['$resource', function ($resource) {
     var userApi = $resource('http://localhost:8080/user', {}, {
         create: {
             method: 'POST'
@@ -17,4 +17,4 @@ app.service('UserService', function ($resource) {
         return userApi.login(loginObj);
     };
 
-});
+}]);
