@@ -3,6 +3,11 @@
         {{fieldLabel}} is required
     </div>
     <div ng-show="!formControl.$error.required && formControl.$invalid">
-        {{fieldLabel}} entered is invalid
+        <div ng-show="formControl.$error.alreadyTaken">
+            {{fieldLabel}} already taken
+        </div>
+        <div ng-show="!formControl.$error.alreadyTaken">
+            {{fieldLabel}} entered is invalid
+        </div>
     </div>
 </div>

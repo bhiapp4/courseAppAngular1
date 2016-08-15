@@ -1,1 +1,1 @@
-var app = angular.module('CourseApp', ['ngResource', 'ui.router', 'ui.bootstrap', 'ngMask']);
+var app = angular.module('CourseApp', ['ngResource', 'ngCookies', 'ui.router', 'ui.bootstrap', 'ngMask']);

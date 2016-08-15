@@ -4,19 +4,35 @@
 <head>
     <link rel="stylesheet" href="bower_components/bootswatch-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="bower_components/angular-bootstrap/ui-bootstrap-csp.css">
+    <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.min.css">
 
     <script type="text/javascript" src="bower_components/angular/angular.js"></script>
     <script type="text/javascript" src="bower_components/angular-resource/angular-resource.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-cookies/angular-cookies.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
     <script src='bower_components/ngMask/dist/ngMask.min.js'></script>
     <script src="app.js"></script>
     <script src="routes.js"></script>
     <script src="user/controller.js"></script>
     <script src="user/service.js"></script>
+    <script src="course/controller.js"></script>
+    <script src="course/service.js"></script>
     <script src="directives/showMessage.js"></script>
+    <script src="directives/username-validator.js"></script>
+    <script src="directives/spinner.js"></script>
 
+    <style>
+        .form-group.required .control-label:after {
+            content: "*";
+            color: red;
+        }
+        
+        a:hover {
+            cursor: pointer;
+        }
 
+    </style>
 </head>
 
 <body ng-app="CourseApp">
@@ -24,6 +40,11 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" ui-sref="login">Course Application</a>
+            </div>
+            <div class="collapse navbar-collapse" ng-if="showLogout">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>{{showLogout}}<a ng-click="logOut()">Logout</a></li>
+                </ul>
             </div>
         </div>
     </nav>

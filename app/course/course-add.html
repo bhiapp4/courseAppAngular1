@@ -1,0 +1,96 @@
+<h2>Add Course</h2>
+<div class="row">
+    <div class="col-lg-8">
+        <div class="well bs-component">
+            <form name="courseForm" class="form-horizontal" novalidate>
+                <fieldset>
+                    <legend>Course Details</legend>
+                    <div class="form-group required">
+                        <label for="name" name="name" class="col-lg-2 control-label">Name</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" id="name" ng-model="name" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="description" class="col-lg-2 control-label">Description</label>
+                        <div class="col-lg-10">
+                            <textarea name="description" ng-model="description" cols="30" rows="5" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group required">
+                        <label for="level" class="col-lg-2 control-label">Skill Level</label>
+                        <div class="col-lg-10">
+                            <select name="level" ng-model="level" class="form-control" required>
+                                <option value="BEGINNER">Beginner</option>
+                                <option value="INTERMEDIATE">Intermediate</option>
+                                <option value="ADVANCED">Advanced</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="prereqs" class="col-lg-2 control-label">Pre-reqs</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" ng-model="prereqs" name="prereqs">
+                        </div>
+                    </div>
+                    <div class="form-group required">
+                        <label for="endGoal" class="col-lg-2 control-label">End Goal</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" ng-model="endGoal" name="endGoal" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">Type</label>
+                        <div class="col-lg-10">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="type" id="free" value="option1" ng-model="type"> Free
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="type" id="paid" value="option2" ng-model="type"> Paid
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="fee" class="col-lg-2 control-label">Fee</label>
+                        <div class="col-lg-10 input-group">
+                            <span class="input-group-addon">$</span>
+                            <input type="number" class="form-control" ng-model="fee" name="fee">
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Topic Details <a class="btn btn-primary btn-xs" ng-click="addNewTopic()">Add</a></legend>
+                    <div ng-repeat="topic in topics">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Topic {{$index + 1}}
+                                <a class="btn btn-primary btn-xs" ng-click="removeTopic(topic)">Delete</a>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-group required">
+                                    <label for="name" name="topicName" class="col-lg-2 control-label">Name</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" class="form-control" ng-model="name" required>
+                                    </div>
+                                </div>
+                                <div class="form-group required">
+                                    <label for="name" name="duration" class="col-lg-2 control-label">Duration</label>
+                                    <div class="col-lg-10 input-group">
+                                        <span class="input-group-addon">Mins</span>
+                                        <input type="number" class="form-control" ng-model="duration" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+            <button class="btn btn-primary" ng-click="saveCourse()" ng-disabled="courseForm.$invalid">Save</button>
+
+        </div>
+    </div>
+</div>
