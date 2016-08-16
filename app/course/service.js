@@ -1,4 +1,5 @@
 app.service('CourseService', ['$resource', function ($resource) {
+    this.selectedCourse = null;
     var courseApi = $resource('http://localhost:8080/course', {}, {
         getAll: {
             method: 'GET',
@@ -11,7 +12,16 @@ app.service('CourseService', ['$resource', function ($resource) {
                 userId: '@userId'
             },
             url: 'http://localhost:8080/course/user/:userId'
-
+        },
+        getCourseById: {
+            method: 'GET',
+            params: {
+                courseId: '@courseId'
+            },
+            url: 'http://localhost:8080/course/:courseId'
+        },
+        create: {
+            method: 'POST'
         }
     });
 
@@ -24,6 +34,20 @@ app.service('CourseService', ['$resource', function ($resource) {
         return courseApi.getAllForUser({
             userId: userIdPassed
         });
+    };
+
+    this.saveCourse = function (course) {
+        return courseApi.create(course);
+    };
+
+    this.getCourseById = function (courseIdPassed) {
+        return courseApi.getCourseById({
+            courseId: courseIdPassed
+        });
+    };
+
+    this.setSelectedCourse = function (course) {
+        this.selectedCourse = course;
     };
 
 }]);

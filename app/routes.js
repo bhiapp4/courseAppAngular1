@@ -23,6 +23,16 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
             templateUrl: 'course/course-add.html',
             controller: 'CourseController'
         })
+        .state('courseEdit', {
+            url: '/editCourse/:courseId',
+            templateUrl: 'course/course-add.html',
+            controller: 'CourseController'
+        })
+        .state('courseTopics', {
+            url: '/courseTopics/:courseId',
+            templateUrl: 'course/course-topics.html',
+            controller: 'TopicsController'
+        })
 }]);
 
 app.run(['$rootScope', '$cookies', '$location', function ($rootScope, $cookies, $location) {
