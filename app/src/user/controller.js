@@ -1,4 +1,4 @@
-app.controller('UserController', ['UserService', '$scope', '$cookies', '$state', function (UserService, $scope, $cookies, $state) {
+app.controller('UserController', ['UserService', '$scope', '$rootScope', '$cookies', '$state', function (UserService, $scope, $rootScope, $cookies, $state) {
     $scope.value = 'Hello User';
     $scope.regex = "((?=.*\\d)(?=.*[a-z])(?=.*[@#$%]).{6,10})";
     $scope.user = {
@@ -20,7 +20,9 @@ app.controller('UserController', ['UserService', '$scope', '$cookies', '$state',
         UserService.createUser($scope.user).$promise.then(function (savedUser) {
             console.log(savedUser);
             $scope.resetForm();
+            $rootScope.message = "Success. Please login and view the courses";
             $state.go('login');
+
         }, function (error) {
             console.log(error);
         });;

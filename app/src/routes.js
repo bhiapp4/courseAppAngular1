@@ -47,6 +47,7 @@ app.run(['$rootScope', '$cookies', '$location', function ($rootScope, $cookies, 
         if (toState.name === 'login' || toState.name === 'signup') {
             $rootScope.showLogout = false;
         } else {
+            $rootScope.message = null;
             if (loggedInUser === undefined) {
                 event.preventDefault();
                 $rootScope.showLogout = false;
@@ -55,5 +56,10 @@ app.run(['$rootScope', '$cookies', '$location', function ($rootScope, $cookies, 
         }
 
     });
+
+    $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+        $rootScope.currentState = toState.name;
+        $rootScope.previousState = fromState.name;
+    })
 
 }]);
