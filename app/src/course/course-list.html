@@ -6,7 +6,7 @@
     <button type="button" class="list-group-item" ng-repeat="course in courses" ng-click="displayTopics(course)">
         <div class="media">
             <div class="media-left">
-                <img class="media-object" ng-src="http://www.gravatar.com/avatar/{{$index}}">
+                <img class="media-object" ng-src="http://lorempixel.com/80/80/people?random={{$index}}">
             </div>
             <div class="media-body">
                 <h4 class="media-heading">{{course.name}}</h4>
@@ -17,7 +17,7 @@
                     {{course.endGoal}}
                 </div>
                 <div>
-                    {{course.authorFullName}}
+                    Author: {{course.authorFullName}}
                 </div>
             </div>
         </div>
