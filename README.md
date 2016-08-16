@@ -14,6 +14,8 @@ Under bower_components folder go to bootswatch-dist folder and edit .bower.json 
 then run below commands
 
 gulp default
+
 For production mode gulp default --production this will create index.prod.html
+
 gulp serve
 
