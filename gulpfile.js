@@ -28,7 +28,6 @@ gulp.task('default', ['installFonts'], function () {
 
     var bowerFiles = require('main-bower-files'),
         inject = require('gulp-inject'),
-        angularFilesort = require('gulp-angular-filesort'),
         concat = require('gulp-concat'),
         uglify = require('gulp-uglify'),
         cleanCss = require('gulp-clean-css'),
