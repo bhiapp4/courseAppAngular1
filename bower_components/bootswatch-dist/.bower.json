@@ -1,17 +1,18 @@
 {
-  "name": "bootswatch-dist",
-  "homepage": "https://github.com/dbtek/bootswatch-dist",
-  "authors": [
+    "name": "bootswatch-dist",
+    "homepage": "https://github.com/dbtek/bootswatch-dist",
+    "authors": [
     "İsmail Demirbilek <ce.demirbilek@gmail.com>"
   ],
-  "description": "Distribution packages for Bootswatch themes. Just the ones ready to use with Bower.",
-  "main": [
-    "js/bootstrap.js"
+    "description": "Distribution packages for Bootswatch themes. Just the ones ready to use with Bower.",
+    "main": [
+    "js/bootstrap.js",
+    "css/bootstrap.css"
   ],
-  "dependencies": {
-    "jquery": ">= 1.9.0"
-  },
-  "keywords": [
+    "dependencies": {
+        "jquery": ">= 1.9.0"
+    },
+    "keywords": [
     "bootstwatch",
     "dist",
     "package",
@@ -32,8 +33,8 @@
     "united",
     "yeti"
   ],
-  "license": "MIT",
-  "ignore": [
+    "license": "MIT",
+    "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
@@ -43,14 +44,14 @@
     "Gruntfile.js",
     ".gitignore"
   ],
-  "_release": "76ace959fc",
-  "_resolution": {
-    "type": "branch",
-    "branch": "flatly",
-    "commit": "76ace959fc0edd183b3c37380ba2aa75d83a1f97"
-  },
-  "_source": "https://github.com/dbtek/bootswatch-dist.git",
-  "_target": "flatly",
-  "_originalSource": "bootswatch-dist",
-  "_direct": true
+    "_release": "76ace959fc",
+    "_resolution": {
+        "type": "branch",
+        "branch": "flatly",
+        "commit": "76ace959fc0edd183b3c37380ba2aa75d83a1f97"
+    },
+    "_source": "https://github.com/dbtek/bootswatch-dist.git",
+    "_target": "flatly",
+    "_originalSource": "bootswatch-dist",
+    "_direct": true
 }
