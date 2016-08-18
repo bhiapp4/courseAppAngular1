@@ -63,8 +63,13 @@
         </div>
     </nav>
     <div class="container">
-        <div class="alert alert-success" ng-if="message !== undefined && message !== null">
-            {{message}}
+        <div ng-controller="InformationController">
+            <div class="alert alert-danger" ng-repeat="error in errors" ng-if="errors.length != 0">
+                {{error}}
+            </div>
+            <div class="alert alert-success" ng-repeat="info in infos" ng-if="infos.length != 0">
+                {{info}}
+            </div>
         </div>
 
         <div ui-view></div>

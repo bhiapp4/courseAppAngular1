@@ -1,4 +1,5 @@
-app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', function ($stateProvider, $urlRouterProvider, $httpProvider) {
+    $httpProvider.interceptors.push('HttpInterceptor');
     // For any unmatched url, redirect to /state1
     $urlRouterProvider.otherwise("/login");
     // Now set up the states
@@ -35,7 +36,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
         })
 }]);
 
-app.run(['$rootScope', '$cookies', '$location', function ($rootScope, $cookies, $location) {
+app.run(['$rootScope', '$cookies', '$location', 'InformationService', function ($rootScope, $cookies, $location, InformationService) {
     $rootScope.logOut = function () {
         $cookies.remove('loggedInUser');
         $location.path('/login');
@@ -54,6 +55,7 @@ app.run(['$rootScope', '$cookies', '$location', function ($rootScope, $cookies, 
                 $location.path('/login');
             }
         }
+        InformationService.clear();
 
     });
 

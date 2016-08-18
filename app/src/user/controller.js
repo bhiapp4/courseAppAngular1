@@ -1,4 +1,4 @@
-app.controller('UserController', ['UserService', '$scope', '$rootScope', '$cookies', '$state', function (UserService, $scope, $rootScope, $cookies, $state) {
+app.controller('UserController', ['UserService', '$scope', '$rootScope', '$cookies', '$state', 'InformationService', function (UserService, $scope, $rootScope, $cookies, $state, InformationService) {
     $scope.value = 'Hello User';
     $scope.regex = "((?=.*\\d)(?=.*[a-z])(?=.*[@#$%]).{6,10})";
     $scope.user = {
@@ -20,9 +20,9 @@ app.controller('UserController', ['UserService', '$scope', '$rootScope', '$cooki
         UserService.createUser($scope.user).$promise.then(function (savedUser) {
             console.log(savedUser);
             $scope.resetForm();
-            $rootScope.message = "Success. Please login and view the courses";
+            //$rootScope.message = "Success. Please login and view the courses";
             $state.go('login');
-
+            InformationService.populateInfo("Signup attempt successfull");
         }, function (error) {
             console.log(error);
         });;
@@ -30,10 +30,10 @@ app.controller('UserController', ['UserService', '$scope', '$rootScope', '$cooki
 
     $scope.loginToApp = function () {
         UserService.login($scope.login).$promise.then(function (user) {
+            console.log(user);
             $cookies.put('loggedInUser', JSON.stringify(user));
             $state.go('courses');
-        }, function (error) {
-            console.log(error);
+            InformationService.populateInfo("Login attempt successfull..");
         });
     };
 
