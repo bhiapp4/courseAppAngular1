@@ -20,11 +20,8 @@ app.controller('UserController', ['UserService', '$scope', '$rootScope', '$cooki
         UserService.createUser($scope.user).$promise.then(function (savedUser) {
             console.log(savedUser);
             $scope.resetForm();
-            //$rootScope.message = "Success. Please login and view the courses";
             $state.go('login');
-            InformationService.populateInfo("Signup attempt successfull");
-        }, function (error) {
-            console.log(error);
+            InformationService.populateInfo("Signup attempt successfull. Please login");
         });;
     };
 

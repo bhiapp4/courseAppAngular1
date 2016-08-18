@@ -45,6 +45,16 @@
         a:hover {
             cursor: pointer;
         }
+        
+        #error-message {
+            animation: error-message 0.5s 1;
+            -webkit-animation: error-message 0.5s 1;
+            animation-fill-mode: forwards;
+            animation-delay: 2s;
+            -webkit-animation-delay: 1s;
+            /* Safari and Chrome */
+            -webkit-animation-fill-mode: forwards;
+        }
 
     </style>
 </head>
@@ -63,7 +73,7 @@
         </div>
     </nav>
     <div class="container">
-        <div ng-controller="InformationController">
+        <div ng-controller="InformationController" id="error-message">
             <div class="alert alert-danger" ng-repeat="error in errors" ng-if="errors.length != 0">
                 {{error}}
             </div>

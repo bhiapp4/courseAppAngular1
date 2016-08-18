@@ -29,11 +29,7 @@ app.controller('CourseController', ['CourseService', '$scope', '$cookies', '$sta
     });
 
     CourseService.getAllCourses().$promise.then(function (courses) {
-        //for (index = 0; index < courses.length; ++index) {
-        //  courses[index].imgSrc = "http://lorempixel.com/80/80/people?random=" + index;
-        //}
         $scope.courses = courses;
-
     });
 
     $scope.addNewTopic = function () {
@@ -50,8 +46,6 @@ app.controller('CourseController', ['CourseService', '$scope', '$cookies', '$sta
         console.log($scope.course);
         CourseService.saveCourse($scope.course).$promise.then(function () {
             $state.go('courses');
-        }, function (error) {
-            console.log(error);
         });
     }
 
@@ -66,8 +60,6 @@ app.controller('CourseController', ['CourseService', '$scope', '$cookies', '$sta
         $scope.pageTitle = "Edit Course";
         CourseService.getCourseById($stateParams.courseId).$promise.then(function (course) {
             $scope.course = course;
-        }, function (error) {
-            console.log(error);
         });
     }
 }]);

@@ -10,6 +10,7 @@ app.directive('usernameValidator', ['$http', '$q', function ($http, $q) {
                             ngModel.$error.alreadyTaken = true;
                             return $q.reject();
                         }
+                        delete ngModel.$error.alreadyTaken;
                         return true;
                     }
                 );

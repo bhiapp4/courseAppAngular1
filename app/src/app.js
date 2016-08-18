@@ -2,13 +2,13 @@ var app = angular.module('CourseApp', ['ngResource', 'ngCookies', 'ui.router', '
 
 app.factory('HttpInterceptor', ['$q', 'InformationService', function ($q, InformationService) {
     var interceptor = {
-        request: function (config) {
-            //console.log("Clearing errors");
-            console.log(config);
-            return config;
-        },
+        //request: function (config) {
+        //console.log("Clearing errors");
+        //    console.log(config);
+        //    return config;
+        //},
         response: function (response) {
-            console.log(response);
+            //console.log(response);
             return response;
         },
         responseError: function (errorResponse) {
@@ -17,7 +17,6 @@ app.factory('HttpInterceptor', ['$q', 'InformationService', function ($q, Inform
             console.log(errorResponse);
             if (errorResponse.status === 403 || errorResponse.status === 401) {
                 InformationService.populateError("Authorization Failed. Please check your credentials");
-
             }
 
             if (errorResponse.status === -1) {
@@ -39,12 +38,13 @@ app.service('InformationService', function () {
 
     this.populateInfo = function (info) {
         this.infos.push(info);
-        console.log(this.infos);
+        console.log(info);
     }
 
     this.clear = function () {
         this.errors = [];
         this.infos = [];
+        console.log("clearing..");
     }
 
     this.getErrors = function () {
