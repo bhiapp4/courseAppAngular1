@@ -13,3 +13,7 @@ gulp -v
 --cd to the project folder
 gulp serve
 
+docker build -t courseui .
+docker images
+docker run -d --name courseapp -p 80:9000 courseui
+docker ps

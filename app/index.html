@@ -28,13 +28,13 @@
     <!-- inject:js -->
     <script src="src/app.js"></script>
     <script src="src/routes.js"></script>
-    <script src="src/course/controller.js"></script>
-    <script src="src/course/service.js"></script>
     <script src="src/user/controller.js"></script>
     <script src="src/user/service.js"></script>
     <script src="src/directives/showMessage.js"></script>
     <script src="src/directives/spinner.js"></script>
     <script src="src/directives/username-validator.js"></script>
+    <script src="src/course/controller.js"></script>
+    <script src="src/course/service.js"></script>
     <!-- endinject -->
     <style>
         .form-group.required label:after {
@@ -44,16 +44,6 @@
         
         a:hover {
             cursor: pointer;
-        }
-        
-        #error-message {
-            animation: error-message 0.5s 1;
-            -webkit-animation: error-message 0.5s 1;
-            animation-fill-mode: forwards;
-            animation-delay: 2s;
-            -webkit-animation-delay: 1s;
-            /* Safari and Chrome */
-            -webkit-animation-fill-mode: forwards;
         }
 
     </style>
@@ -73,11 +63,13 @@
         </div>
     </nav>
     <div class="container">
-        <div ng-controller="InformationController" id="error-message">
-            <div class="alert alert-danger" ng-repeat="error in errors" ng-if="errors.length != 0">
+        <div ng-controller="InformationController">
+            <div class="alert alert-dismissible alert-danger" ng-repeat="error in errors" ng-if="errors.length != 0">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
                 {{error}}
             </div>
-            <div class="alert alert-success" ng-repeat="info in infos" ng-if="infos.length != 0">
+            <div class="alert alert-dismissible alert-success" ng-repeat="info in infos" ng-if="infos.length != 0">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
                 {{info}}
             </div>
         </div>

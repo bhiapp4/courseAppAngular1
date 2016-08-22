@@ -36,10 +36,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', function ($
         })
 }]);
 
-app.run(['$rootScope', '$cookies', '$location', 'InformationService', function ($rootScope, $cookies, $location, InformationService) {
+app.run(['$rootScope', '$cookies', '$location', '$state', 'InformationService', function ($rootScope, $cookies, $location, $state, InformationService) {
     $rootScope.logOut = function () {
         $cookies.remove('loggedInUser');
-        $location.path('/login');
+        $state.go('login');
+        InformationService.populateInfo("Logged out successfully");
     }
 
     $rootScope.$on('$stateChangeStart', function (event, toState, fromState) {

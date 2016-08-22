@@ -17,11 +17,12 @@ app.factory('HttpInterceptor', ['$q', 'InformationService', function ($q, Inform
             console.log(errorResponse);
             if (errorResponse.status === 403 || errorResponse.status === 401) {
                 InformationService.populateError("Authorization Failed. Please check your credentials");
+            } else if (errorResponse.status === -1) {
+                InformationService.populateError("Backend Service seems to be down");
+            } else {
+                InformationService.populateError(errorResponse.message);
             }
 
-            if (errorResponse.status === -1) {
-                InformationService.populateError("Backend Service seems to be down");
-            }
             return $q.reject(errorResponse);
         }
     };
@@ -57,16 +58,24 @@ app.service('InformationService', function () {
 
 });
 //resposible for showing error/info messages to the user
-app.controller('InformationController', ['$scope', 'InformationService', function ($scope, InformationService) {
+app.controller('InformationController', ['$scope', '$timeout', 'InformationService', function ($scope, $timeout, InformationService) {
     $scope.service = InformationService;
     $scope.errors = [];
     $scope.infos = [];
     $scope.$watch('service.getErrors()', function (newErrors) {
         $scope.errors = newErrors;
+        $scope.clearMessages();
     });
 
     $scope.$watch('service.getInfos()', function (newInfos) {
         $scope.infos = newInfos;
+        $scope.clearMessages();
     });
+
+    $scope.clearMessages = function () {
+        $timeout(function () {
+            InformationService.clear();
+        }, 10000);
+    };
 
 }]);
